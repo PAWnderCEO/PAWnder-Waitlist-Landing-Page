@@ -10,7 +10,7 @@ This repository contains the early access landing page used to collect waitlist 
 ---
 
 ## Live Site
-https://YOUR-NETLIFY-URL.netlify.app
+https://pawnderlanding.netlify.app/
 
 ---
 
