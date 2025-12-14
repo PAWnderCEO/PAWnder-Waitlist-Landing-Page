@@ -59,10 +59,6 @@
       font-size: 16px;
     }
 
-    input::placeholder {
-      color: #94a3b8;
-    }
-
     button {
       padding: 16px;
       border-radius: 12px;
@@ -74,10 +70,15 @@
       cursor: pointer;
     }
 
-    .note {
-      margin-top: 12px;
-      font-size: 14px;
-      opacity: 0.6;
+    .success {
+      display: none;
+      margin-top: 20px;
+      padding: 16px;
+      border-radius: 12px;
+      background: #022c22;
+      color: #86efac;
+      font-weight: 600;
+      text-align: center;
     }
 
     .image-wrap {
@@ -107,14 +108,19 @@
     <div class="card layout">
 
       <div>
-        <h1>PAWnder — Join Your City’s Pack</h1>
+        <h1>Pawnder — Join Your City’s Pack</h1>
         <p>
-          Tinder + Maps for dogs. Discover dog parks, set up playdates,
-          and connect with trusted breeders and pet services.
+          Discover dog parks, playdates, and local pet connections.
           Early Bay Area access now open.
         </p>
 
-        <form name="pawnder-waitlist" method="POST" data-netlify="true" action="/success.html">
+        <!-- NETLIFY FORM -->
+        <form
+          name="pawnder-waitlist"
+          method="POST"
+          data-netlify="true"
+          onsubmit="handleSubmit(event)"
+        >
           <input type="hidden" name="form-name" value="pawnder-waitlist" />
 
           <input type="text" name="name" placeholder="Your name" required />
@@ -129,14 +135,11 @@
             <option>Other</option>
           </select>
 
-          <input type="text" name="dog_name" placeholder="Dog’s name (optional)" />
-          <input type="text" name="referral" placeholder="Referred by (code)" />
-
-          <button type="submit">Join Waitlist — Get Early Access</button>
+          <button type="submit">Join Waitlist</button>
         </form>
 
-        <div class="note">
-          No spam. You can unsubscribe anytime.
+        <div class="success" id="successMessage">
+          🎉 You’re on the list! We’ll be in touch soon.
         </div>
       </div>
 
@@ -146,5 +149,26 @@
 
     </div>
   </div>
+
+  <script>
+    function handleSubmit(event) {
+      event.preventDefault();
+
+      const form = event.target;
+      const data = new FormData(form);
+
+      fetch("/", {
+        method: "POST",
+        body: data
+      })
+      .then(() => {
+        form.reset();
+        document.getElementById("successMessage").style.display = "block";
+      })
+      .catch(() => {
+        alert("Something went wrong. Please try again.");
+      });
+    }
+  </script>
 </body>
 </html>
