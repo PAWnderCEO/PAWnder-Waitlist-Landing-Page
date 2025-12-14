@@ -5,7 +5,7 @@ README.md
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <title>Pawnder — Join your city's pack</title>
   <meta name="description" content="Pawnder — Tinder + Maps for dog lovers. Join the waitlist for Bay Area early access."/>
   <style>
@@ -21,11 +21,18 @@ README.md
     footer{margin-top:18px;color:var(--muted);font-size:13px}
     .hero{display:flex;gap:20px;align-items:center}
     @media(max-width:720px){.hero{flex-direction:column;align-items:flex-start}}
-  </style>
+  </style>html, body {
+  max-width: 100%;
+  overflow-x: hidden;
 </head>
 <body>
   <main class="card" role="main">
-    <div class="hero">
+    <div class="container"> {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px;
+  box-sizing: border-box;
       <div style="flex:1">
         <h1>Pawnder — Join your city's pack</h1>
         <p class="lead">Tinder + Maps for dogs. Discover dog parks, make playdates, and find trusted breeders & services. Early Bay Area access — join the waitlist.</p>
