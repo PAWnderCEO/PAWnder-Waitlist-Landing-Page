@@ -1,5 +1,6 @@
 # PAWnder-Waitlist-Landing-Page
 index.html
+README.md
 <!doctype html>
 <html lang="en">
 <head>
