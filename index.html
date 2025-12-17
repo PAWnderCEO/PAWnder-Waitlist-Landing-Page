@@ -115,12 +115,18 @@
         </p>
 
         <!-- NETLIFY FORM -->
-        <form
-          name="pawnder-waitlist"
-          method="POST"
-          data-netlify="true"
-          onsubmit="handleSubmit(event)"
-        >
+        <<form name="pawnder-waitlist" method="POST" data-netlify="true">
+  <input type="hidden" name="form-name" value="pawnder-waitlist" />
+
+  <input 
+    type="email" 
+    name="email" 
+    placeholder="Enter your email" 
+    required 
+  />
+
+  <button type="submit">Join Waitlist</button>
+</form>
           <input type="hidden" name="form-name" value="pawnder-waitlist" />
 
           <input type="text" name="name" placeholder="Your name" required />
